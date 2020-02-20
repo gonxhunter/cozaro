@@ -6,19 +6,29 @@
 /**
  * Imports
  */
-@import "bourbon";
 @import "mixins";
 @import "variables";
 
 /**
  * Styling begins
  */
-.woocommerce, .woocommerce-page {
+.woocommerce,
+.woocommerce-page {
+
+	.woocommerce-message,
+	.woocommerce-error,
+	.woocommerce-info {
+
+		.button {
+			float: right;
+		}
+	}
 
 	/**
 	 * General layout styles
 	 */
 	.col2-set {
+
 		@include clearfix();
 		width: 100%;
 
@@ -26,6 +36,7 @@
 			float: left;
 			width: 48%;
 		}
+
 		.col-2 {
 			float: right;
 			width: 48%;
@@ -42,12 +53,14 @@
 	 */
 	div.product,
 	#content div.product {
+
 		div.images {
 			float: left;
 			width: 48%;
 		}
 
 		div.thumbnails {
+
 			@include clearfix();
 
 			a {
@@ -66,6 +79,7 @@
 			}
 
 			&.columns-1 {
+
 				a {
 					width: 100%;
 					margin-right: 0;
@@ -74,18 +88,21 @@
 			}
 
 			&.columns-2 {
+
 				a {
 					width: 48%;
 				}
 			}
 
 			&.columns-4 {
+
 				a {
 					width: 22.05%;
 				}
 			}
 
 			&.columns-5 {
+
 				a {
 					width: 16.9%;
 				}
@@ -95,18 +112,22 @@
 		div.summary {
 			float: right;
 			width: 48%;
+			clear: none;
 		}
 
 		.woocommerce-tabs {
 			clear: both;
 
 			ul.tabs {
+
 				@include menu();
 			}
 		}
 
 		#reviews {
+
 			.comment {
+
 				@include mediaright();
 			}
 		}
@@ -117,6 +138,7 @@
 	 */
 	ul.products {
 		clear: both;
+
 		@include clearfix();
 
 		li.product {
@@ -137,8 +159,49 @@
 		}
 	}
 
+	ul.products {
+
+		&.columns-1 {
+
+			li.product {
+				width: 100%;
+				margin-right: 0;
+			}
+		}
+
+		&.columns-2 {
+
+			li.product {
+				width: 48%;
+			}
+		}
+
+		&.columns-3 {
+
+			li.product {
+				width: 30.75%;
+			}
+		}
+
+		&.columns-5 {
+
+			li.product {
+				width: 16.95%;
+			}
+		}
+
+		&.columns-6 {
+
+			li.product {
+				width: 13.5%;
+			}
+		}
+	}
+
 	&.columns-1 {
+
 		ul.products {
+
 			li.product {
 				width: 100%;
 				margin-right: 0;
@@ -147,7 +210,9 @@
 	}
 
 	&.columns-2 {
+
 		ul.products {
+
 			li.product {
 				width: 48%;
 			}
@@ -155,7 +220,9 @@
 	}
 
 	&.columns-3 {
+
 		ul.products {
+
 			li.product {
 				width: 30.75%;
 			}
@@ -163,7 +230,9 @@
 	}
 
 	&.columns-5 {
+
 		ul.products {
+
 			li.product {
 				width: 16.95%;
 			}
@@ -171,7 +240,9 @@
 	}
 
 	&.columns-6 {
+
 		ul.products {
+
 			li.product {
 				width: 13.5%;
 			}
@@ -181,12 +252,15 @@
 	.woocommerce-result-count {
 		float: left;
 	}
+
 	.woocommerce-ordering {
 		float: right;
 	}
 
 	.woocommerce-pagination {
+
 		ul.page-numbers {
+
 			@include menu();
 		}
 	}
@@ -196,6 +270,7 @@
 	 */
 	table.cart,
 	#content table.cart {
+
 		img {
 			height: auto;
 		}
@@ -218,6 +293,7 @@
 	}
 
 	.cart-collaterals {
+
 		@include clearfix();
 		width: 100%;
 
@@ -241,11 +317,13 @@
 
 		.shipping_calculator {
 			width: 48%;
+
 			@include clearfix();
 			clear: right;
 			float: right;
 
 			.col2-set {
+
 				.col-1,
 				.col-2 {
 					width: 47%;
@@ -264,7 +342,9 @@
 	 */
 	ul.cart_list,
 	ul.product_list_widget {
+
 		li {
+
 			@include mediaright();
 		}
 	}
@@ -273,7 +353,9 @@
 	 * Forms
 	 */
 	form {
+
 		.form-row {
+
 			@include clearfix();
 
 			label {
@@ -296,9 +378,16 @@
 
 		.form-row-first,
 		.form-row-last {
-			float: left;
 			width: 47%;
 			overflow: visible;
+		}
+
+		.form-row-first {
+			float: left;
+
+			/*rtl:raw:
+			float: right;
+			*/
 		}
 
 		.form-row-last {
@@ -308,28 +397,82 @@
 		.form-row-wide {
 			clear: both;
 		}
+
+		.password-input {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			position: relative;
+
+			input[type="password"] {
+				padding-right: 2.5rem;
+			}
+
+			/* Hide the Edge "reveal password" native button */
+			input::-ms-reveal {
+				display: none;
+			}
+		}
+
+		.show-password-input {
+			position: absolute;
+			right: 0.7em;
+			top: 0.7em;
+			cursor: pointer;
+		}
+
+		.show-password-input::after {
+
+			@include iconafter( "\e010" ); 	// Icon styles and glyph
+		}
+
+		.show-password-input.display-password::after {
+			color: #e8e8e8;
+		}
 	}
 
 	#payment {
+
 		.form-row {
+
 			select {
 				width: auto;
 			}
 		}
 
-		.wc-terms-and-conditions, .terms {
+		.wc-terms-and-conditions,
+		.terms {
 			text-align: left;
 			padding: 0 1em 0 0;
-			float:left;
+			float: left;
 		}
 
 		#place_order {
 			float: right;
 		}
 	}
+
+	.woocommerce-billing-fields,
+	.woocommerce-shipping-fields {
+
+		@include clearfix();
+	}
+
+	.woocommerce-terms-and-conditions {
+		margin-bottom: 1.618em;
+		padding: 1.618em;
+	}
+
+	/**
+	 * oEmbeds
+	 */
+	.woocommerce-oembed {
+		position: relative;
+	}
 }
 
 .woocommerce-account {
+
 	.woocommerce-MyAccount-navigation {
 		float: left;
 		width: 30%;
@@ -345,7 +488,9 @@
  * Twenty Eleven specific styles
  */
 .woocommerce-page {
+
 	&.left-sidebar {
+
 		#content.twentyeleven {
 			width: 58.4%;
 			margin: 0 7.6%;
@@ -354,6 +499,7 @@
 	}
 
 	&.right-sidebar {
+
 		#content.twentyeleven {
 			margin: 0 7.6%;
 			width: 58.4%;
@@ -366,6 +512,7 @@
  * Twenty Fourteen specific styles
  */
 .twentyfourteen {
+
 	.tfwc {
 		padding: 12px 10px 0;
 		max-width: 474px;
@@ -379,19 +526,13 @@
 		div.product.hentry.has-post-thumbnail {
 			margin-top: 0;
 		}
-
-		.product {
-			.images {
-				img {
-					margin-bottom: 1em;
-				}
-			}
-		}
 	}
 }
 
 @media screen and (min-width: 673px) {
+
 	.twentyfourteen {
+
 		.tfwc {
 			padding-right: 30px;
 			padding-left: 30px;
@@ -400,7 +541,9 @@
 }
 
 @media screen and (min-width: 1040px) {
+
 	.twentyfourteen {
+
 		.tfwc {
 			padding-right: 15px;
 			padding-left: 15px;
@@ -409,7 +552,9 @@
 }
 
 @media screen and (min-width: 1110px) {
+
 	.twentyfourteen {
+
 		.tfwc {
 			padding-right: 30px;
 			padding-left: 30px;
@@ -418,13 +563,18 @@
 }
 
 @media screen and (min-width: 1218px) {
+
 	.twentyfourteen {
+
 		.tfwc {
 			margin-right: 54px;
 		}
 	}
+
 	.full-width {
+
 		.twentyfourteen {
+
 			.tfwc {
 				margin-right: auto;
 			}
@@ -436,6 +586,7 @@
  * Twenty Fifteen specific styles
  */
 .twentyfifteen {
+
 	.t15wc {
 		padding-left: 7.6923%;
 		padding-right: 7.6923%;
@@ -451,7 +602,9 @@
 }
 
 @media screen and (min-width: 38.75em) {
+
 	.twentyfifteen {
+
 		.t15wc {
 			margin-right: 7.6923%;
 			margin-left: 7.6923%;
@@ -461,7 +614,9 @@
 }
 
 @media screen and (min-width: 59.6875em) {
+
 	.twentyfifteen {
+
 		.t15wc {
 			margin-left: 8.3333%;
 			margin-right: 8.3333%;
@@ -470,7 +625,9 @@
 	}
 
 	.single-product {
+
 		.twentyfifteen {
+
 			.entry-summary {
 				padding: 0 !important;
 			}
@@ -482,6 +639,7 @@
  * Twenty Sixteen specific styles
  */
 .twentysixteen {
+
 	.site-main {
 		margin-right: 7.6923%;
 		margin-left: 7.6923%;
@@ -494,8 +652,11 @@
 }
 
 #content {
+
 	.twentysixteen {
+
 		div.product {
+
 			div.images,
 			div.summary {
 				width: 46.42857%;
@@ -505,7 +666,9 @@
 }
 
 @media screen and (min-width: 44.375em) {
+
 	.twentysixteen {
+
 		.site-main {
 			margin-right: 23.0769%;
 		}
@@ -513,7 +676,9 @@
 }
 
 @media screen and (min-width: 56.875em) {
+
 	.twentysixteen {
+
 		.site-main {
 			margin-right: 0;
 			margin-left: 0;
@@ -521,7 +686,9 @@
 	}
 
 	.no-sidebar {
+
 		.twentysixteen {
+
 			.site-main {
 				margin-right: 15%;
 				margin-left: 15%;
@@ -539,21 +706,17 @@
  * RTL styles.
  */
 .rtl {
-	.woocommerce, .woocommerce-page {
+
+	.woocommerce,
+	.woocommerce-page {
+
 		.col2-set {
+
 			.col-1 {
 				float: right;
 			}
+
 			.col-2 {
-				float: left;
-			}
-		}
-		form {
-			.form-row-first,
-			.form-row-last {
-				float: right;
-			}
-			.form-row-last {
 				float: left;
 			}
 		}

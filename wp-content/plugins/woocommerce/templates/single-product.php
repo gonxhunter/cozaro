@@ -11,7 +11,6 @@
  * the readme will list any important changes.
  *
  * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
  * @package 	WooCommerce/Templates
  * @version     1.6.4
  */
@@ -56,4 +55,6 @@ get_header( 'shop' ); ?>
 		do_action( 'woocommerce_sidebar' );
 	?>
 
-<?php get_footer( 'shop' ); ?>
+<?php get_footer( 'shop' );
+
+/* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */

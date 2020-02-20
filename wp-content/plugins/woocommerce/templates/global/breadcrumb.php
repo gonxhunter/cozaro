@@ -11,7 +11,6 @@
  * the readme will list any important changes.
  *
  * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
  * @package 	WooCommerce/Templates
  * @version     2.3.0
  * @see         woocommerce_breadcrumb()
@@ -40,7 +39,6 @@ if ( ! empty( $breadcrumb ) ) {
 		if ( sizeof( $breadcrumb ) !== $key + 1 ) {
 			echo $delimiter;
 		}
-
 	}
 
 	echo $wrap_after;
